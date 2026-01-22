@@ -67,6 +67,41 @@ function afterRender(scope) {
         document.querySelectorAll(`.${lang}-inline`).forEach(el => el.style.display = 'inline');
     }
 }
+const BeerManager = (() => {
+    const map = new WeakMap();
+    function init(slider) {
+        if (!slider || map.has(slider)) return;
+        map.set(slider, new BeerSlider(slider, { start: 50 }));
+    }
+    function initActive() {
+        document
+            .querySelectorAll('.carousel-item.active .beer-slider')
+            .forEach(init);
+    }
+    return { init, initActive };
+})();
+
+function bindCarouselBeer() {
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        if (carousel.__beerBind) return;
+        carousel.__beerBind = true;
+
+        carousel.addEventListener('slid.bs.carousel', e => {
+            const slider = e.relatedTarget?.querySelector('.beer-slider');
+            if (slider) BeerManager.init(slider);
+            blockCarouselWhenDragBeer();
+        });
+    });
+}
+function blockCarouselWhenDragBeer() {
+    document.querySelectorAll('.beer-slider').forEach(slider => {
+        if (slider.__blocked) return;
+        slider.__blocked = true;
+
+        slider.addEventListener('pointerdown', e => e.stopPropagation());
+        slider.addEventListener('touchstart', e => e.stopPropagation());
+    });
+}
 
 async function render() {
     showLoader();
@@ -92,6 +127,11 @@ async function render() {
     } finally {
         afterRender();
         hideLoader();
+        requestAnimationFrame(() => {
+            BeerManager.initActive();
+            bindCarouselBeer();
+            blockCarouselWhenDragBeer();
+        });
     }
 }
 

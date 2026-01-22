@@ -15,13 +15,13 @@ window.Pages.index = function () {
              
             <!-- Map Data -->
             <div class="carousel-item active">
-            <img class="d-block w-100" src="./public/images/antin/23.jpg" alt="1">
+            <img class="d-block w-100" src="./public/images/antin/23.JPG" alt="1">
                 <div class="carousel-caption d-block d-md-block">
                 <p>Some representative placeholder content for the first slide.</p>
                 </div>
             </div>
-            <div class="carousel-item "><img class="d-block w-100" src="./public/images/antin/24.jpg" alt="1"></div>
-            <div class="carousel-item "><img class="d-block w-100" src="./public/images/antin/25.jpg" alt="1"></div>
+            <div class="carousel-item "><img class="d-block w-100" src="./public/images/antin/24.JPG" alt="1"></div>
+            <div class="carousel-item "><img class="d-block w-100" src="./public/images/antin/25.JPG" alt="1"></div>
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#antin" data-bs-slide="prev">

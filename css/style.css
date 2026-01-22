@@ -27,6 +27,9 @@ h1 {
 }
 
 /* BG-top */
+#saingon .background-top{
+     z-index: 1;
+}
 .background-top {
     background: url(../public/element/bg-top.png) center / cover no-repeat;
     height: 60vh;
