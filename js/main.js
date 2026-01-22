@@ -57,7 +57,7 @@ function loadScript(src) {
     });
 }
 
-function afterRender() {
+function afterRender(scope) {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     const lang = localStorage.getItem('language');
     if (lang) {
@@ -85,6 +85,7 @@ async function render() {
             await loadScript(`public/datas/${route.data}Data.js`).then(() => loaded.datas[route.data] = true);
             app.innerHTML = window.Pages[route.page](window.datas[route.data]);
         }
+
     } catch (e) {
         app.innerHTML = "<h2>Lỗi tải trang</h2>";
         console.log(e)

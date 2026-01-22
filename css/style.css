@@ -7,16 +7,62 @@
 }
 
 h1 {
-    text-align: center;
+    position: fixed;
+    z-index: 5;
+    left: 50%;
+    top: 12vh;
+    transform: translateX(-50%);
     color: var(--colorh1);
     font-size: clamp(18px, 4vw, 52px);
     font-weight: 700;
 }
 
-.logo {
+.logo{
+    position: fixed;
     width: 30%;
+    z-index: 5;
+    left: 50%;
+    top: 2vh;
+    transform: translate(-50%);
+}
+
+/* BG-top */
+.background-top {
+    background: url(../public/element/bg-top.png) center / cover no-repeat;
+    height: 60vh;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+/* Carousel custom */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 5vw;
+    height: 5vw;
+}
+.carousel-control-prev,
+.carousel-control-next {
+   top: 35vh;
+   
+}
+.carousel-control-prev-icon {
+    background-image: url('../public/element/Pre.png');
+}
+
+.carousel-control-next-icon {
+    background-image: url('../public/element/next.png');
+}
+
+.carousel-inner {
+    width: 80%;
     margin: auto;
-    padding-top: 2vh;
+    top: 17vh;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    z-index: 4;
 }
 
 /* Background và Link */
@@ -26,7 +72,7 @@ h1 {
     position: absolute;
     bottom: 0;
     right: 0;
-    z-index: 0;
+    z-index: 5;
 }
 
 .img-bg {
@@ -44,8 +90,8 @@ h1 {
     width: 25.9%;
 }
 
-.background-button .active{
-  filter: hue-rotate(290deg);
+.background-button .active {
+    filter: hue-rotate(290deg);
 }
 
 .background-button a:nth-of-type(1) {
@@ -193,10 +239,7 @@ h1 {
 }
 
 @media (orientation: landscape) {
-    .logo {
-        width: 15% !important;
-    }
-    #changeLang{
+    #changeLang {
         width: 5%;
         bottom: 5vh;
         right: 2%;
