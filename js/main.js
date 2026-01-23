@@ -109,20 +109,23 @@ async function render() {
         return;
     }
     try {
-        if (!loaded.pages[route.page]) await loadScript(`pages/${route.page}.js`).then(() => loaded.pages[route.page] = true);
+        if (!loaded.pages[route.page]) await loadScript(`./pages/${route.page}.js`).then(() => loaded.pages[route.page] = true);
         if (route.data && loaded.datas[route.data]) {
             app.innerHTML = window.Pages[route.page](window.datas[route.data]);
             return;
         }
         if (route.data && !loaded.datas[route.data]) {
-            await loadScript(`public/datas/${route.data}Data.js`).then(() => loaded.datas[route.data] = true);
+            await loadScript(`./public/datas/${route.data}Data.js`).then(() => loaded.datas[route.data] = true);
             app.innerHTML = window.Pages[route.page](window.datas[route.data]);
             return;
         }
         app.innerHTML = window.Pages[route.page](null);
+     
     } catch (e) {
-        app.innerHTML = "<h2>Lỗi tải trang</h2>";
+        alert("Lỗi tải trang, Trang chưa được Load, đợi một ít phút xong quay lại trang");
+        app.innerHTML = "<h2>Lỗi tải trang, Trang chưa được Load, đợi một ít phút xong quay lại trang</h2>";
         console.log(e)
+        showLoader();
     } finally {
         afterRender();
         requestAnimationFrame(() => {
