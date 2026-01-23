@@ -3,14 +3,13 @@ const app = document.getElementById('app');
 const loaded = {
     pages: {
         index: true,
-        antin: false,
         sacphong: false,
         bando: false,
         saigon: false,
         chuyendekhac: false
     },
     datas: {
-        antin: false,
+        index: true,
         sacphong: false,
         bando: false,
         saigon: false
@@ -20,10 +19,7 @@ const loaded = {
 const routes = {
     '/': {
         page: 'index',
-    },
-    '/antin': {
-        page: 'antin',
-        data: 'antin'
+        data: 'index'
     },
     '/sacphong': {
         page: 'sacphong',
@@ -114,24 +110,27 @@ async function render() {
     }
     try {
         if (!loaded.pages[route.page]) await loadScript(`pages/${route.page}.js`).then(() => loaded.pages[route.page] = true);
-        app.innerHTML = window.Pages[route.page](null);
-        if (route.data && loaded.datas[route.data]) app.innerHTML = window.Pages[route.page](window.datas[route.data]);
+        if (route.data && loaded.datas[route.data]) {
+            app.innerHTML = window.Pages[route.page](window.datas[route.data]);
+            return;
+        }
         if (route.data && !loaded.datas[route.data]) {
             await loadScript(`public/datas/${route.data}Data.js`).then(() => loaded.datas[route.data] = true);
             app.innerHTML = window.Pages[route.page](window.datas[route.data]);
+            return;
         }
-
+        app.innerHTML = window.Pages[route.page](null);
     } catch (e) {
         app.innerHTML = "<h2>Lỗi tải trang</h2>";
         console.log(e)
     } finally {
         afterRender();
-        hideLoader();
         requestAnimationFrame(() => {
             BeerManager.initActive();
             bindCarouselBeer();
             blockCarouselWhenDragBeer();
         });
+        hideLoader();
     }
 }
 

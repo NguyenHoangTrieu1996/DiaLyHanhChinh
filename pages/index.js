@@ -1,8 +1,22 @@
 window.Pages = window.Pages || {};
 
-window.Pages.index = function () {
+window.Pages.index = function (datas) {
+    const carouselItems = Array.isArray(datas)
+        ? datas.map((item, i) => `
+        <div class="carousel-item ${i === 0 ? 'active' : ''}">
+            <img class="d-block w-100"
+                 src="./${item.img}"
+                 alt="antin-${i + 1}">
+            <div class="carousel-caption d-block d-md-block">
+                <p class="lang lang-vi">${item.desc1}</p>
+                <p class="lang lang-eng" style="display:none;">${item.desc2}</p>
+            </div>
+        </div>`).join("")
+        : "";
+
     return `
-        <h1>Ấn Tín</h1>
+        <h1 class="lang lang-vi">Ấn Tín</h1>
+        <h1 class="lang lang-eng" style="display:none;">ENG</h1>
         <div id="antin" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="background-top">
             </div>
@@ -11,17 +25,9 @@ window.Pages.index = function () {
             <div class="carousel-title">
                 <h2>GIAI ĐOẠN 1945 - 1994</h2>
             </div>
-
              
             <!-- Map Data -->
-            <div class="carousel-item active">
-            <img class="d-block w-100" src="./public/images/antin/23.JPG" alt="1">
-                <div class="carousel-caption d-block d-md-block">
-                <p>Some representative placeholder content for the first slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item "><img class="d-block w-100" src="./public/images/antin/24.JPG" alt="1"></div>
-            <div class="carousel-item "><img class="d-block w-100" src="./public/images/antin/25.JPG" alt="1"></div>
+            ${carouselItems}
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#antin" data-bs-slide="prev">

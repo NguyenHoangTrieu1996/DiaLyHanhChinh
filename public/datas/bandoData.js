@@ -1,5 +1,31 @@
 window.datas = window.datas || {};
 window.datas.bando = [
-    { title: "Tin 1", desc: "Nội dung tin 1" },
-    { title: "Tin 2", desc: "Nội dung tin 2" }
+    { img: "public/images/bando/1.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/2.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/3.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/4.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/5.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/6.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/7.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/8.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/9.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/10.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/11.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/12.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/13.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/14.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/15.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/16.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/17.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/18.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/19.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/20.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/21.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/22.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/23.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/24.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/25.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/26.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/27.jpg", desc1: "VN1", desc2: "EN1" },
+    { img: "public/images/bando/28.jpg", desc1: "VN1", desc2: "EN1" }
 ];
