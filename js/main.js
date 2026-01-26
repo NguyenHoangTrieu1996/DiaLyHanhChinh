@@ -140,10 +140,10 @@ function preloadData() {
     setTimeout(() => {
         Object.values(routes).forEach(route => {
             if (route.page && !loaded.pages[route.page]) {
-                loadScript(`pages/${route.page}.js`).then(() => loaded.pages[route.page] = true);
+                loadScript(`./pages/${route.page}.js`).then(() => loaded.pages[route.page] = true);
             }
             if (route.data && !loaded.datas[route.data]) {
-                loadScript(`public/datas/${route.data}Data.js`).then(() => loaded.datas[route.data] = true);
+                loadScript(`./public/datas/${route.data}Data.js`).then(() => loaded.datas[route.data] = true);
             }
         });
 
